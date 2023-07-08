@@ -138,7 +138,6 @@ describe('Issue create', () => {
     });
   });
 
-
   //TEST 2.
   /* Add a new test case for creating new issue using random data plugin. Work in the same spec file. Do following steps:
   Create a new new issue with the following data:
@@ -149,24 +148,20 @@ describe('Issue create', () => {
   reporter “Baby Yoda”
   Assert, that the issue is created and is visible on the board.*/
 
-  it('Should create an issue and validate it successfully', () => {
+  it.only('Should create an issue and validate it successfully', () => {
+
+    //Use faker library to generate random title and description
+    const randomDescription = faker.lorem.words();
+    const randomSummary = faker.lorem.word();
+
     //System finds modal for creating issue and does next steps inside of it
     cy.get('[data-testid="modal:issue-create"]').within(() => {
 
-      //open issue
-      cy.get('[data-testid="select:type"]').click();
-      /*cy.get('[data-testid="select-option:Task"]').trigger('click'); 
-      The "Task" is selected by default, do not have to choose*/
+      // The "Task" is selected by default, do not have to choose
 
-      //Use faker library to generate random title and description
-      const randomDescription = faker.lorem.words();
-      const randomTitle = faker.lorem.word();
-
-      // Wait for 2 second (adjust the time as needed)
-      cy.wait(3000); 
-
+      //Type value to description and summary field
       cy.get('.ql-editor').should('be.visible').type(randomDescription);
-      cy.get('input[name="title"]').should('be.visible').type(randomTitle);
+      cy.get('input[name="title"]').should('be.visible').type(randomSummary);
 
       //Select "Low" from priority dropdown
       cy.get('[data-testid="select:priority"]').click();
@@ -196,7 +191,7 @@ describe('Issue create', () => {
         .should('have.length', '5')
         .first()
         .find('p')
-        .contains(randomTitle);
+        .contains(randomSummary);
 
       //Assert that correct icons are visible
       cy.get('[data-testid="icon:task"]').should('be.visible');
