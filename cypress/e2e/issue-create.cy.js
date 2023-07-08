@@ -69,9 +69,9 @@ describe('Issue create', () => {
   });
 
 
-  //PROJECT 5, ASSIGNMENT 2
-  //TEST 1.
-  /* Add a new test case for creating another issue to the spec file “issue-create.cy.js”. 
+  /* PROJECT 5, ASSIGNMENT 2
+  TEST 1.
+  Add a new test case for creating another issue to the spec file “issue-create.cy.js”. 
   You can copy the case 'Should create an issue and validate it successfully' and just modify it accordingly. 
   Do the following steps:
   Create a new test case for creating a new issue with the following data:
@@ -138,8 +138,8 @@ describe('Issue create', () => {
     });
   });
 
-  //TEST 2.
-  /* Add a new test case for creating new issue using random data plugin. Work in the same spec file. Do following steps:
+  /* TEST 2.
+  Add a new test case for creating new issue using random data plugin. Work in the same spec file. Do following steps:
   Create a new new issue with the following data:
   Use the random data plugin to fill in title (1 word).
   Use the random data plugin for filling in the description (several words).
@@ -148,7 +148,7 @@ describe('Issue create', () => {
   reporter “Baby Yoda”
   Assert, that the issue is created and is visible on the board.*/
 
-  it.only('Should create an issue and validate it successfully', () => {
+  it('Should create an issue and validate it successfully', () => {
 
     //Use faker library to generate random title and description
     const randomDescription = faker.lorem.words();
