@@ -23,7 +23,7 @@ describe('Deleting an issue and cancel deletion', () => {
                 .click()
                 .then(($title) => {
                     // Saving the title of the first item to a variable
-                    const firstTitle = $title.text()
+                    firstTitle = $title.text()
                     getIssueDetailsModal()
                         .should('be.visible')
                 });
@@ -52,15 +52,15 @@ describe('Deleting an issue and cancel deletion', () => {
             .should('not.contain', firstTitle);
     });
 
-    /* 
-    TEST 2: 
-    Create new test case for starting the deleting issue process, but cancelling this action:
-        - create new test case to the same test spec file. The same beforeEach() block will be used;
-        - assert, that issue detail view modal is visible;
-        - click delete issue button;
-        - cancel the deletion in the confirmation pop-up;
-        - assert, that deletion confirmation dialogue is not visible;
-        - assert, that issue is not deleted and still displayed on the Jira board */
+/* 
+TEST 2: 
+Create new test case for starting the deleting issue process, but cancelling this action:
+    - create new test case to the same test spec file. The same beforeEach() block will be used;
+    - assert, that issue detail view modal is visible;
+    - click delete issue button;
+    - cancel the deletion in the confirmation pop-up;
+    - assert, that deletion confirmation dialogue is not visible;
+    - assert, that issue is not deleted and still displayed on the Jira board */
 
     it('Should cancel first issue deleting process and confirm that issue is not deleted', () => {
         cy.get('[data-testid="icon:trash"]')
@@ -87,7 +87,6 @@ describe('Deleting an issue and cancel deletion', () => {
         cy.get('[data-testid="board-list:backlog"]')
             .first()
             .then(($title) => {
-                const firstTitle = $title.text()
                 cy.contains('[data-testid="board-list:backlog"]', firstTitle)
                     .should('be.visible');
             });
