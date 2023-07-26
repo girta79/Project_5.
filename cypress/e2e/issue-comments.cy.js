@@ -27,7 +27,7 @@ describe('Issue comments creating, editing and deleting', () => {
         });
     });
 
-    it.only('Should create,edit and delete comment successfully', () => {
+    it('Should create,edit and delete comment successfully', () => {
         const comment = 'TEST_COMMENT';
         const comment_edited = 'TEST_COMMENT_EDITED';
 
@@ -52,9 +52,9 @@ describe('Issue comments creating, editing and deleting', () => {
             cy.contains('Delete').click();
         });
 
-            cy.get('[data-testid="modal:confirm"]').contains('button', 'Delete comment')
-                .click().should('not.exist');
-            getIssueDetailsModal().contains(comment_edited).should('not.exist');
+        cy.get('[data-testid="modal:confirm"]').contains('button', 'Delete comment')
+            .click().should('not.exist');
+        getIssueDetailsModal().contains(comment_edited).should('not.exist');
 
     });
 
