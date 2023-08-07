@@ -56,7 +56,7 @@ describe('Time tracking and time logging functionality', () => {
         });
     });
 
-    it.skip('TC(4-5): Log time, remove logged time', () => {
+    it('TC(4-5): Log time, remove logged time', () => {
         //Logging time
         timeTracking().click();
         cy.get(modalTracking).should('be.visible');
