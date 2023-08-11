@@ -29,7 +29,6 @@ describe('Time tracking and time logging functionality', () => {
             timeTracking().should('contain', 'No time logged');
 
             cy.get(inputField).click().type('10').should('have.value', '10');
-            /*timeTracking().should('contain', '10h remaining');*/
 
             closeIssue();
             reopenIssue();
